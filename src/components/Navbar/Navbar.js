@@ -9,9 +9,9 @@ const Navbar = () => {
                 <div className="middle-bar"></div>
             </label>
             <div className="nav-links">
-                <div className="nav-link active">women</div>
-                <div className="nav-link">men</div>
-                <div className="nav-link">kids</div>
+                <a href='/' className="nav-link active">women</a>
+                <a href='/' className="nav-link">men</a>
+                <a href='/' className="nav-link">kids</a>
             </div>
             <div className="nav-logo">
                 <img src="/logo.png" alt="brand icon" />

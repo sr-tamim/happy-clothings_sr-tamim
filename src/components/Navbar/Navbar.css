@@ -42,23 +42,39 @@ nav{
 }
 #nav-links-toggler:checked + .nav-links-toggler-icon::before{
     top: 50%;
-    transform: rotate(45deg) translateY(-50%);
+    transform: rotate(45deg) translateY(-100%);
 }
 #nav-links-toggler:checked + .nav-links-toggler-icon::after{
     bottom: 50%;
-    transform: rotate(-45deg) translateY(50%);
+    transform: rotate(-45deg) translateY(100%);
 }
 .nav-links{
-    display: none;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 500ms;
+}
+#nav-links-toggler:checked + .nav-links-toggler-icon + .nav-links{
+    transform: scaleY(1);
 }
 .nav-link{
+    text-decoration: none;
     text-transform: uppercase;
+    color: black;
+    font-size: clamp(0.8rem, 2vw, 1.1rem);
     display: flex;
     align-items: center;
     padding: 0.5rem 1rem;
 }
 .nav-link.active{
-    border-bottom: 1px solid green;
+    background-color: lightgreen;
+    border-bottom: 2px solid green;
 }
 .nav-logo{
     position: absolute;
@@ -66,7 +82,7 @@ nav{
     transform: translateX(-50%);
 }
 .nav-logo > img{
-    width: clamp(1.8rem, 3vw, 2.2rem);
+    width: clamp(1.8rem, 2vw, 2.2rem);
 }
 .nav-actions{
     display: flex;
@@ -75,5 +91,29 @@ nav{
 .nav-cart-icon{
     display: flex;
     align-items: center;
-    padding: 0 1rem;
+    padding: 0 clamp(0.4rem, 2vw, 1rem);
+}
+
+@media screen and (min-width: 768px) {
+    .nav-links-toggler-icon{
+        display: none;
+    }
+    .nav-links{
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        top: unset; left: unset;
+        transform: none;
+    }
+    .nav-link{
+        cursor: pointer;
+        transition: border 300ms;
+        border-bottom: 2px solid transparent;
+    }
+    .nav-link.active{
+        background: unset;
+    }
+    .nav-link:hover{
+        border-bottom: 2px solid green;
+    }
 }

@@ -1,3 +1,9 @@
 *{
   box-sizing: border-box;
 }
+
+.App{
+  max-width: 80rem;
+  margin: auto;
+  padding: 0 1rem;
+}
